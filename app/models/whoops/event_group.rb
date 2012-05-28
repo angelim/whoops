@@ -52,7 +52,7 @@ class Whoops::EventGroup
   def self.services
     services = SortedSet.new
     previous_service = []
-    all(:sort => [[:service, :asc]]).each do |group|
+    all.order_by(:service.asc).each do |group|
       services << group.service
       split = group.service.split(".")
       common = (previous_service & split)
