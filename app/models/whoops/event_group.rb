@@ -21,7 +21,7 @@ class Whoops::EventGroup
   class << self
     def handle_new_event(params)
       identifying_params = params.slice(*Whoops::EventGroup.identifying_fields)
-      event_group = Whoops::EventGroup.first(:conditions => identifying_params)
+      event_group = Whoops::EventGroup.where(identifying_params).first
       
       if event_group
         event_group.attributes = params

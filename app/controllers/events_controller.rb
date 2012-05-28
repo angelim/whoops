@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+  load_and_authorize_resource :class => "Whoops::Event"
+  skip_authorize_resource :only => :create
   layout 'whoops'
   
   def index

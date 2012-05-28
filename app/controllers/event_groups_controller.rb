@@ -2,6 +2,7 @@ class EventGroupsController < ApplicationController
   layout 'whoops'
   before_filter :update_event_group_filter
   helper_method :event_group_filter
+  load_and_authorize_resource :class => "Whoops::EventGroup"
   
   def index
     finder = if params[:query].blank?
