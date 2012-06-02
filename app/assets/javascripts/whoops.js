@@ -1,3 +1,8 @@
+/*
+
+ *= require_tree
+
+*/
 Whoops = {
   setupFilters: function() {
     $("#new_whoops_filter input").change(function(){
